@@ -420,3 +420,35 @@ html.js .reveal.in { opacity: 1; transform: none; }
   .proofbar li + li { border-top: 1px solid var(--hairline); padding-top: 12px; }
   .footer-cta .btn { width: 100%; }
 }
+/* Emergency visibility fix */
+html,
+body,
+main,
+header,
+section,
+footer,
+.hero,
+.site-header,
+.selected-work,
+.path,
+.contact {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body {
+  background: #F7F7F4 !important;
+  color: #16181A !important;
+}
+
+main {
+  display: block !important;
+  min-height: 100vh !important;
+}
+
+section,
+footer,
+header,
+.hero {
+  transform: none !important;
+}
