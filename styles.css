@@ -1,0 +1,328 @@
+:root {
+  --paper: #F7F7F4;
+  --ink: #16181A;
+  --ink-2: #5C6166;
+  --thread: #2C4A6E;
+  --hairline: #E3E4E0;
+
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+
+  --text-hero: clamp(2.5rem, 7vw, 4.25rem);
+  --text-h2: clamp(1.5rem, 3.2vw, 2rem);
+  --text-body: 1.125rem;
+  --text-small: 0.9375rem;
+  --text-eyebrow: 0.8125rem;
+
+  --measure: 640px;
+  --gutter: 24px;
+  --space-section: clamp(96px, 14vw, 160px);
+  --space-block: 32px;
+  --space-para: 20px;
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./fonts/SourceSerif4-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/Inter-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/Inter-Medium.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.65;
+  letter-spacing: -0.011em;
+}
+
+::selection {
+  background: var(--thread);
+  color: var(--paper);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--paper);
+  color: var(--thread);
+  padding: 12px 20px;
+  z-index: 10;
+}
+
+.skip:focus {
+  left: var(--gutter);
+  top: 12px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--thread);
+  outline-offset: 2px;
+}
+
+#thread {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#thread path {
+  stroke: var(--thread);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+}
+
+#thread circle {
+  fill: var(--thread);
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--text-hero);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 var(--space-para);
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--thread);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--thread);
+}
+
+.sub, .meta {
+  color: var(--ink-2);
+}
+
+.meta {
+  font-size: var(--text-small);
+  margin-top: 40px;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  font-size: var(--text-eyebrow);
+  margin: 0 0 12px;
+}
+
+.placeholder {
+  background: #FFF3C4;
+  padding: 0 4px;
+}
+
+.hero {
+  padding-top: var(--space-section);
+}
+
+.hero .label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  font-size: var(--text-eyebrow);
+  margin: 0 0 var(--space-block);
+}
+
+.hero h1 {
+  margin-bottom: var(--space-block);
+}
+
+section {
+  margin-top: var(--space-section);
+}
+
+#work article {
+  margin-top: var(--space-section);
+}
+
+#work article:first-child {
+  margin-top: var(--space-block);
+}
+
+article dl {
+  margin: 0;
+}
+
+.field {
+  margin: 0 0 12px;
+}
+
+.field dt {
+  display: inline;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--ink-2);
+  font-size: var(--text-small);
+}
+
+.field dt::after {
+  content: " \2014 ";
+}
+
+.field dd {
+  display: inline;
+  margin: 0;
+}
+
+.field.field--takeaway {
+  margin-bottom: 0;
+}
+
+.field--takeaway dd {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.principle {
+  margin-bottom: 48px;
+}
+
+.principle:last-child {
+  margin-bottom: 0;
+}
+
+.principle strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-h2);
+  display: block;
+  margin-bottom: 8px;
+}
+
+footer#contact {
+  border-top: 1px solid var(--hairline);
+  margin-top: var(--space-section);
+  padding-top: var(--space-block);
+  padding-bottom: 120px;
+}
+
+footer#contact h2 {
+  font-family: var(--font-display);
+  font-size: calc(var(--text-hero) * 0.7);
+}
+
+footer#contact a {
+  display: inline-block;
+  min-height: 44px;
+  padding: 8px 0;
+  line-height: 28px;
+}
+
+html.js section,
+html.js footer#contact {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+html.js section.in,
+html.js footer#contact.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js section,
+  html.js footer#contact {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 719px) {
+  :root {
+    --gutter: 20px;
+  }
+
+  main {
+    padding-left: 40px;
+  }
+
+  .hero .meta {
+    display: block;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero .meta .sep {
+    display: none;
+  }
+
+  .hero .meta span {
+    display: block;
+  }
+}
